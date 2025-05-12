@@ -5,8 +5,8 @@ import {
   CircleDashed
 } from 'lucide-react';
 
-interface GameIconProps {
-  name: string;
+interface GameIconProps extends React.SVGProps<SVGSVGElement> {
+  name: 'snake' | 'bird' | 'tetris' | 'pong';
   className?: string;
 }
 
@@ -32,6 +32,30 @@ export const GameIcon: React.FC<GameIconProps> = ({ name, className = "w-6 h-6" 
           <path d="M10 20c-3 0-5.5-1.4-7-4" />
           <path d="M16 8l-3.8 1.3" />
           <path d="M14 16L10 14" />
+        </svg>
+      );
+    case 'bird':
+      // Custom SVG for flappy bird
+      return (
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          viewBox="0 0 24 24" 
+          fill="currentColor" 
+          stroke="currentColor" 
+          strokeWidth="1" 
+          strokeLinecap="round" 
+          strokeLinejoin="round" 
+          className={className}
+        >
+          {/* Bird body */}
+          <path d="M12 6c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6z" />
+          {/* Wing */}
+          <path d="M14 10c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z" />
+          {/* Beak */}
+          <path d="M18 11l4 1-4 1v-2z" />
+          {/* Eye */}
+          <circle cx="10" cy="11" r="1.5" fill="white" />
+          <circle cx="10" cy="11" r="0.5" fill="black" />
         </svg>
       );
     case 'tetris':

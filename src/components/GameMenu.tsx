@@ -28,6 +28,13 @@ export const GameMenu: React.FC = () => {
           icon="snake"
         />
         <GameCard 
+          id="flappybird"
+          name="Flappy Bird"
+          description="Navigate through pipes by controlling the bird's flight. Test your reflexes and timing!"
+          color="from-yellow-600 to-yellow-400"
+          icon="bird"
+        />
+        <GameCard 
           id="tetris"
           name="Tetris"
           description="Arrange falling blocks to create complete rows. Coming soon!"

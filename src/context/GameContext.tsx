@@ -1,5 +1,8 @@
 import React, { createContext, useState, useEffect } from 'react';
 import { SnakeGame } from '../games/SnakeGame';
+import { FlappyBird } from '../games/FlappyBird';
+
+type GameInstance = SnakeGame | FlappyBird | null;
 
 interface GameContextType {
   currentGame: string | null;
@@ -23,7 +26,7 @@ export const GameContextProvider: React.FC<{ children: React.ReactNode }> = ({ c
   const [currentGame, setCurrentGame] = useState<string | null>(null);
   const [gameVisible, setGameVisible] = useState(false);
   const [score, setScore] = useState(0);
-  const [gameInstance, setGameInstance] = useState<any>(null);
+  const [gameInstance, setGameInstance] = useState<GameInstance>(null);
 
   // Clean up game instance when component unmounts
   useEffect(() => {
@@ -45,6 +48,9 @@ export const GameContextProvider: React.FC<{ children: React.ReactNode }> = ({ c
       
       if (game === 'snake') {
         instance = new SnakeGame(updateScore);
+        instance.start();
+      } else if (game === 'flappybird') {
+        instance = new FlappyBird('gameCanvas');
         instance.start();
       }
       // Add more games here as they're implemented
