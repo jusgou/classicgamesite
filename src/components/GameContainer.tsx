@@ -40,7 +40,7 @@ export const GameContainer: React.FC = () => {
             ref={canvasRef}
             id="gameCanvas" 
             width="400" 
-            height="400" 
+            height="600" 
             className="bg-gray-900 mx-auto border-gray-700"
           ></canvas>
           
